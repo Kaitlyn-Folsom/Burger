@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 id="main-header">Eat Da Burger!</h1>
+    </div>
+  </div>{{!-- End Row --}}
+
+    <hr>
+  
+  <div class="row">
+    <div class="col-lg-3">
+      <h3 class="secondary-header">Ready-To-Eat Burgers</h3>
+      <hr>
+        {{#each burgers}}
+          {{#unless this.devoured}}
+            <div class="well well-sm">
+              <h4>{{this.id}}. {{this.burger_name}}
+                <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="devoured" value="true">
+                  <br>
+                  <button type="submit" class="btn btn-default" id="eat-burger">Eat it!</button>
+                </form>
+              </h4>
+            </div>
+          {{/unless}}
+        {{/each}}
+
+    </div>{{!-- End Col --}}
+
+    {{!-- Input new Burger --}}
+    <div class="col-lg-6">
+      <img src="../assets/images/burger.png" id="burger-image">
+        
+        <h2 id="add-burger-header">Add a Burger</h2>
+
+        <form class="create-update-form" action="burgers/insertOne" method="POST" id="submit">
+          <div class="form-group">
+            <!-- <label for="bg">Burger Name:</label> -->
+            <textarea type="text" name="name" id="input-area"></textarea><br><br>
+              <button class="btn btn-danger" type="submit" id="input-btn">Submit</button>
+              <h4 class="text-center">Enter a burger you want to eat and click Submit!</h4>
+          </div>
+        </form>
+
+    </div>{{!-- End Col --}}
+
+    <div class="col-lg-3">
+      <h3 class="secondary-header">Devoured Burgers</h3>
+      <hr>
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <div class="well well-sm">
+              <h4>{{this.id}}. {{this.burger_name}}</h4>
+            </div>
+            <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+             <input type="hidden" name="devoured" value="false">
+          {{/if}}
+        {{/each}}
+    </div>{{!-- End Col --}}
+
+  </div>{{!-- End Row --}}
+
+</div>{{!-- End Container --}}
+
+
+
+
+
