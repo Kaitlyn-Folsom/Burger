@@ -8,4 +8,6 @@ Each burger in the waiting area also has a `Eat it!` button. When the user click
 
 This app stores every burger in a database, whether devoured or not.
 
+Try it out yourself: https://murmuring-stream-77546.herokuapp.com/index
+
 ![Home Page](/public/assets/images/homepage.png)
